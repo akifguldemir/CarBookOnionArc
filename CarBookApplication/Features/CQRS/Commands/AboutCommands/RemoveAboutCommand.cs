@@ -9,7 +9,9 @@ namespace CarBookApplication.Features.CQRS.Commands.AboutCommands
     public class RemoveAboutCommand
     {
         public int Id { get; set; }
-
-        public RemoveAboutCommand() { Id = Id; }
+        public RemoveAboutCommand(int id)
+        {
+            Id = id;
+        }
     }
 }
