@@ -43,7 +43,7 @@ namespace CarBookPersistence.Repositories
 
         public async Task UpdateAsync(T entity)
         {
-            _context.Set<T>().Remove(entity);
+            _context.Set<T>().Update(entity);
             await _context.SaveChangesAsync();
         }
     }
