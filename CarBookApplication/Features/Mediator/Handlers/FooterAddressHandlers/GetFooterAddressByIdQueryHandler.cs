@@ -11,6 +11,11 @@ namespace CarBookApplication.Features.Mediator.Handlers.FooterAddressHandlers
     {
         private readonly IRepository<FooterAddress> _repository;
 
+        public GetFooterAddressByIdQueryHandler(IRepository<FooterAddress> repository)
+        {
+            _repository = repository;
+        }
+
         public async Task<GetFooterAddressByIdQueryResult> Handle(GetFooterAddressByIdQuery request, CancellationToken cancellationToken)
         {
             var values = await _repository.GetByIdAsync(request.Id);
