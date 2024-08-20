@@ -18,7 +18,8 @@ namespace CarBookApplication.Features.Mediator.Handlers.AuthorHandlers
         public async Task<List<GetAuthorQueryResult>> Handle(GetAuthorQuery request, CancellationToken cancellationToken)
         {
             var values = await _repository.GetAllAsync();
-            return values.Select(x => new GetAuthorQueryResult {
+            return values.Select(x => new GetAuthorQueryResult
+            {
                 AuthorID = x.AuthorID,
                 Name = x.Name,
                 ImageUrl = x.ImageUrl,

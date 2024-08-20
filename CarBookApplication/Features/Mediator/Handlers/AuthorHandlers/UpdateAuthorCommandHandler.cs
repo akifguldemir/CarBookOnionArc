@@ -25,7 +25,7 @@ namespace CarBookApplication.Features.Mediator.Handlers.AuthorHandlers
             values.Name = request.Name;
             values.Description = request.Description;
             values.ImageUrl = request.ImageUrl;
-            
+
             await _repository.UpdateAsync(values);
         }
     }

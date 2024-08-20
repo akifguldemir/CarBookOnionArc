@@ -20,10 +20,10 @@ namespace CarBookApplication.Features.Mediator.Handlers.AuthorHandlers
             var value = await _repository.GetByIdAsync(request.Id);
             return new GetAuthorByIdQueryResult
             {
-               Name = value.Name,
-               AuthorID = value.AuthorID,
-               Description = value.Description,
-               ImageUrl = value.ImageUrl
+                Name = value.Name,
+                AuthorID = value.AuthorID,
+                Description = value.Description,
+                ImageUrl = value.ImageUrl
             };
         }
     }

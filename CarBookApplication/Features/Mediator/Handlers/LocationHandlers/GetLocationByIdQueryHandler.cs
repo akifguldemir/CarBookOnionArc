@@ -7,11 +7,11 @@ using MediatR;
 
 namespace CarBookApplication.Features.Mediator.Handlers.LocationHandlers
 {
-    public class GetAuthorByIdQueryHandler : IRequestHandler<GetLocationByIdQuery, GetLocationByIdQueryResult>
+    public class GetLocationByIdQueryHandler : IRequestHandler<GetLocationByIdQuery, GetLocationByIdQueryResult>
     {
         private readonly IRepository<Location> _repository;
 
-        public GetAuthorByIdQueryHandler(IRepository<Location> repository)
+        public GetLocationByIdQueryHandler(IRepository<Location> repository)
         {
             _repository = repository;
         }
