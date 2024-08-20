@@ -3,11 +3,6 @@ using CarBookApplication.Features.Mediator.Results.BlogResults;
 using CarBookApplication.Interfaces;
 using CarbookDomain.Entities;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CarBookApplication.Features.Mediator.Handlers.BlogHandlers
 {
