@@ -1,23 +1,21 @@
 ﻿using CarBookApplication.Features.CQRS.Results.CarResults;
-using CarBookApplication.Interfaces;
 using CarBookApplication.Interfaces.CarInterfaces;
-using CarbookDomain.Entities;
 
 namespace CarBookApplication.Features.CQRS.Handlers.CarHandlers
 {
-    public class GetCarWithBrandQueryHandler
+    public class GetLast5CarsBrandQueryHandler
     {
         private readonly ICarRepository _carRepository;
 
-        public GetCarWithBrandQueryHandler(ICarRepository carRepository)
+        public GetLast5CarsBrandQueryHandler(ICarRepository carRepository)
         {
             _carRepository = carRepository;
         }
 
-        public List<GetCarWithBrandQueryResult> Handle()
+        public List<GetLast5CarsBrandQueryResult> Handle()
         {
-            var values = _carRepository.GetCarsListWithBrands();
-            return values.Select(x => new GetCarWithBrandQueryResult
+            var values = _carRepository.GetLAst5CarsWithBrands();
+            return values.Select(x => new GetLast5CarsBrandQueryResult
             {
                 BrandName = x.Brand.Name,
                 CarID = x.CarID,
