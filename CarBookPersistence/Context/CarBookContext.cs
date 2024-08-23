@@ -34,5 +34,6 @@ namespace CarBookPersistence.Context
         public DbSet<CarFeature> CarFeatures { get; set; }
         public DbSet<Author> Authos { get; set; }
         public DbSet<Blog> Blogs { get; set; }
+        public DbSet<Comment> Comments { get; set; }
     }
 }
