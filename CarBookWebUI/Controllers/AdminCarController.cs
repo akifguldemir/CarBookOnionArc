@@ -1,14 +1,15 @@
-﻿using CarBookDto.CarPricingDtos;
+﻿using CarBookDto.CarDtos;
+using CarBookDto.ContactDtos;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
-namespace CarBookWebUI.Controllers
+namespace CarBookWebUI.Controllers.Admin
 {
-    public class CarController : Controller
+    public class AdminCarController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
 
-        public CarController(IHttpClientFactory httpClientFactory)
+        public AdminCarController(IHttpClientFactory httpClientFactory)
         {
             _httpClientFactory = httpClientFactory;
         }
@@ -16,12 +17,14 @@ namespace CarBookWebUI.Controllers
         public async Task<IActionResult> Index()
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("https://localhost:7065/api/CarPricings");
+            var responseMessage = await client.GetAsync("https://localhost:7065/api/Cars/GetCarWithBrand");
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<List<ResultCarPricingWithCarDto>>(jsonData);
+                var values = JsonConvert.DeserializeObject<List<ResultCarPricingWithBrandDto>>(jsonData);
                 return View(values);
+
+
             }
             return View();
         }
