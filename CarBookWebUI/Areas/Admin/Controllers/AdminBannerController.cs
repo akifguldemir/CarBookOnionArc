@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Text;
 
-namespace UdemyCarBook.WebUI.Areas.Admin.Controllers
+namespace CarBookWebUI.Areas.Admin.Controllers
 {
 
     [Area("Admin")]
