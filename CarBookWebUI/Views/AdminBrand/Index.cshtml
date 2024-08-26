@@ -1,4 +1,4 @@
-﻿@model List<ResultFeatureDto>
+﻿@model List<ResultBrandDto>
 
 @{
     ViewData["Title"] = "Index";
@@ -12,18 +12,18 @@
         <!-- start page title -->
         <div class="row">
             <div class="col-xl-12">
-                <div class="Featured">
-                    <div class="Featured-body">
-                        <h4 class="Featured-title">Features Features</h4>
+                <div class="Brandd">
+                    <div class="Brandd-body">
+                        <h4 class="Brandd-title">Brands Brands</h4>
                         <div class="table-responsive">
                             <table class="table mb-0">
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Feature</th>
+                                        <th>Brand</th>
                                         <th>Delete</th>
                                         <th>Update</th>
-                                        <th>Detail</th>
+                                        <th>Cars</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -33,31 +33,30 @@
                                         <tr>
                                             <th scope="row">@count</th>
                                             <td>@item.Name</td>
-                                            <td><a href="/AdminFeature/RemoveFeature/@item.FeatureID" class="btn btn-outline-danger">Delete</a></td>
-                                            <td><a href="/AdminFeature/UpdateFeature/@item.FeatureID" class="btn btn-outline-success">Update</a></td>
-                                            <td><a href="/FeatureList/FeatureDetail/@item.FeatureID" class="btn btn-outline-dart">Detail</a></td>
+                                            <td><a href="/AdminBrand/RemoveBrand/@item.BrandID" class="btn btn-outline-danger">Delete</a></td>
+                                            <td><a href="/AdminBrand/UpdateBrand/@item.BrandID" class="btn btn-outline-success">Update</a></td>
+                                            <td><a href="/BrandList/BrandDetail/@item.BrandID" class="btn btn-outline-dart">Cars</a></td>
                                         </tr>
                                     }
 
                                 </tbody>
                             </table>
-                            <td><a href="/AdminFeature/CreateFeature" class="btn btn-outline-primary">New Feature</a></td>
+                        <td><a href="/AdminBrand/CreateBrand" class="btn btn-outline-primary">New Brand</a></td>
 
                         </div>
 
-                    </div>
-                    <!-- end Featured-body-->
-                </div>
-                <!-- end Featured -->
+                        </div>
+                        <!-- end Brandd-body-->
+                        </div>
+                        <!-- end Brandd -->
+                        </div>
+                        <!-- end col -->
+                        </div>
 
-            </div>
-            <!-- end col -->
-        </div>
+                        <!-- end page title -->
+                        </div> <!-- container-fluid -->
+    </div>
 
-        <!-- end page title -->
-
-    </div> <!-- container-fluid -->
-</div>
 
 
 
