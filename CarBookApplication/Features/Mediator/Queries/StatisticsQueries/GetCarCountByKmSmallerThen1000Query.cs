@@ -8,7 +8,7 @@ using CarBookApplication.Features.Mediator.Results.StatisticsResults;
 
 namespace CarBookApplication.Features.Mediator.Queries.StatisticsQueries
 {
-    public class GetCarCountQuery : IRequest<GetCarCountQueryResult>
+    public class GetCarCountByKmSmallerThen1000Query:IRequest<GetCarCountByKmSmallerThen1000QueryResult>
     {
     }
 }
