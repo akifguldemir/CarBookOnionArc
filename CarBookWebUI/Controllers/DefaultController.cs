@@ -1,7 +1,9 @@
-﻿using CarBookDto.LocationDtos;
+﻿using CarBookDto.BrandDtos;
+using CarBookDto.LocationDtos;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
+using System.Text;
 
 namespace CarBookWebUI.Controllers
 {
@@ -13,6 +15,7 @@ namespace CarBookWebUI.Controllers
             _httpClientFactory = httpClientFactory;
         }
 
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
 
@@ -30,8 +33,17 @@ namespace CarBookWebUI.Controllers
             ViewBag.v = values2;
 
             return View();
-          
+        }
 
+        [HttpPost]
+        public async Task<IActionResult> Index(string book_pick_date, string book_off_date, string time_pick, string time_off, string locationID)
+        {
+            TempData["bookpickdate"] = book_pick_date;
+            TempData["bookoffdate"] = book_off_date;
+            TempData["timepick"] = time_pick;
+            TempData["timeoff"] = time_off;
+            TempData["locationID"] = locationID;
+            return RedirectToAction("Index","RentACarList");
         }
     }
 }
