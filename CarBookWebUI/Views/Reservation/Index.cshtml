@@ -1,4 +1,5 @@
-﻿
+﻿@model ResultLocationDto
+
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/UILayout/Index.cshtml";
@@ -22,10 +23,10 @@
             <input type="text" class="form-control" placeholder="Phone Number">
         </div>
         <div class="form-group">
-            <input type="text" class="form-control" placeholder="PickUp Location">
+            @Html.DropDownListFor(x => x.LocationID, (List<SelectListItem>)ViewBag.v, new { @class = "form-control", @id = "drop" })
         </div>
         <div class="form-group">
-            <input type="text" class="form-control" placeholder="DropOff Location">
+            @Html.DropDownListFor(x => x.LocationID, (List<SelectListItem>)ViewBag.v, new { @class = "form-control", @id = "drop" })
         </div>
         <div class="form-group">
             <input type="text" class="form-control" placeholder="Age">
