@@ -1,6 +1,5 @@
 ﻿using CarBookApplication.Features.Mediator.Queries.RentACarQueries;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CarBookWebApi.Controllers
