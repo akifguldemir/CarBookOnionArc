@@ -17,7 +17,7 @@ namespace CarBookWebUI.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int id)
         {
             var client = _httpClientFactory.CreateClient();
             var responseMessage = await client.GetAsync("https://localhost:7065/api/Locations");
@@ -34,6 +34,7 @@ namespace CarBookWebUI.Controllers
 
             ViewBag.v1 = "Rent A Car";
             ViewBag.v2 = "Rent A Car Form";
+            ViewBag.v3 = id;
             return View();
         }
 
