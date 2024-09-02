@@ -11,7 +11,6 @@ namespace CarbookDomain.Entities
         public int CarFeatureID { get; set; }
         public int CarID { get; set; }
         public Car Car { get; set; }
-        public int FeautureID { get; set; }
         public Feature Feature { get; set; }
         public bool Available { get; set; }
     }
