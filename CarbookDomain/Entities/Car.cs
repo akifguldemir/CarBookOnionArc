@@ -23,6 +23,7 @@ namespace CarbookDomain.Entities
         public List<CarPricing> CarPricings { get; set; }
         public List<RentACar> RentACars { get; set; }
         public List<RentACarProcess> RentACarProcesses { get; set; }
+        public List<Reservation> Reservations { get; set; }
 
 
     }
