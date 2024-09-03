@@ -29,5 +29,12 @@ namespace CarBookWebApi.Controllers
             _mediator.Send(new UpdateCarFeatureAvailableChangoToFalseCommand(id));
             return Ok("Update is ok");
         }
+
+        [HttpGet("CarFeatureChangeAvailableToTrue")]
+        public async Task<IActionResult> CarFeatureChangeAvailableToTrue(int id)
+        {
+            _mediator.Send(new UpdateCarFeatureAvailableChangoToTrueCommand(id));
+            return Ok("Update is ok");
+        }
     }
 }
