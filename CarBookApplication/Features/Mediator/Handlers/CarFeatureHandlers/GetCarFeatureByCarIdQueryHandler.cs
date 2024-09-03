@@ -21,7 +21,7 @@ namespace CarBookApplication.Features.Mediator.Handlers.CarFeatureHandlers
                Available = x.Available,
                CarFeatureID = x.CarFeatureID,
                FeatureID = x.CarFeatureID,
-               
+               FeatureName = x.Feature.Name               
             }).ToList();
         }
     }

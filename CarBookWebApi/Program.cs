@@ -7,6 +7,7 @@ using CarBookApplication.Features.CQRS.Handlers.ContactHandlers;
 using CarBookApplication.Features.RepositoryPattern.CommentRepositories;
 using CarBookApplication.Interfaces;
 using CarBookApplication.Interfaces.BlogInterfaces;
+using CarBookApplication.Interfaces.CarFeatureInterfaces;
 using CarBookApplication.Interfaces.CarInterfaces;
 using CarBookApplication.Interfaces.CarPricingInterfaces;
 using CarBookApplication.Interfaces.RentACarInterfaces;
@@ -15,6 +16,7 @@ using CarBookApplication.Services;
 using CarBookPersistence.Context;
 using CarBookPersistence.Repositories;
 using CarBookPersistence.Repositories.BlogRepositories;
+using CarBookPersistence.Repositories.CarFeatureRepositories;
 using CarBookPersistence.Repositories.CarPricingRepositories;
 using CarBookPersistence.Repositories.CarRespositories;
 using CarBookPersistence.Repositories.CommentRepositories;
@@ -32,6 +34,7 @@ builder.Services.AddScoped(typeof(IStatisticsRepository), typeof(StatisticsRepos
 builder.Services.AddScoped(typeof(IBlogRepository), typeof(BlogRepository));
 builder.Services.AddScoped(typeof(ICarPricingRepository), typeof(CarPricingRepository));
 builder.Services.AddScoped(typeof(IRentACarRepository), typeof(RentACarRepository));
+builder.Services.AddScoped(typeof(ICarFeatureRepository), typeof(CarFeatureRepository));
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(CommentRepository<>));
 
 builder.Services.AddScoped<GetAboutQueryHandler>();
