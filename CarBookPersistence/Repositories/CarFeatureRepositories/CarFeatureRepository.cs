@@ -2,11 +2,6 @@
 using CarbookDomain.Entities;
 using CarBookPersistence.Context;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CarBookPersistence.Repositories.CarFeatureRepositories
 {
@@ -30,6 +25,12 @@ namespace CarBookPersistence.Repositories.CarFeatureRepositories
         {
             var value = _context.CarFeatures.Where(x => x.CarFeatureID == id).FirstOrDefault();
             value.Available = true;
+            _context.SaveChanges();
+        }
+
+        public void CreateCarFeatureByCar(CarFeature carFeature)
+        {
+            _context.CarFeatures.Add(carFeature);
             _context.SaveChanges();
         }
 
