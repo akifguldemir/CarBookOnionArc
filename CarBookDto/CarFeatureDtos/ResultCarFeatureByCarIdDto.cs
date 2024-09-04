@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CarBookDto.CarFeatureDtos
+﻿namespace CarBookDto.CarFeatureDtos
 {
-    public class ResultCarFeatureByCarIdDto
+	public class ResultCarFeatureByCarIdDto
     {
         public int CarFeatureID { get; set; }
         public string FeatureName { get; set; }
