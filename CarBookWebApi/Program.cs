@@ -23,12 +23,26 @@ using CarBookPersistence.Repositories.CarRespositories;
 using CarBookPersistence.Repositories.CommentRepositories;
 using CarBookPersistence.Repositories.RentACarRepositories;
 using CarBookPersistence.Repositories.StatisticsRepositories;
+using CarBookWebApi.Hubs;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using UdemyCarBook.Application.Features.CQRS.Handlers.AboutHandlers;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddHttpClient();
+
+builder.Services.AddCors(opt =>
+{
+	opt.AddPolicy("CorsPolicy", builder =>
+	{
+		builder.AllowAnyHeader()
+		.AllowAnyMethod()
+		.SetIsOriginAllowed((host) => true)
+		.AllowCredentials();
+	});
+});
+builder.Services.AddSignalR();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opt =>
 {
@@ -44,6 +58,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
 	};
 });
 
+#region Registrations
 // Add services to the container.
 builder.Services.AddScoped<CarBookContext>();
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
@@ -92,7 +107,7 @@ builder.Services.AddScoped<GetContactByIdQueryHandler>();
 builder.Services.AddScoped<CreateContactCommandHandler>();
 builder.Services.AddScoped<UpdateContactCommandHandler>();
 builder.Services.AddScoped<RemoveContactCommandHandler>();
-
+#endregion
 builder.Services.AddApplicationService(builder.Configuration);
 
 builder.Services.AddControllers();
@@ -109,10 +124,12 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors("CorsPolicy");
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
 app.MapControllers();
+app.MapHub<CarHub>("/carhub");
 
 app.Run();
