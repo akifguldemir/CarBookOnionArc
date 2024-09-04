@@ -22,9 +22,26 @@ using CarBookPersistence.Repositories.CarRespositories;
 using CarBookPersistence.Repositories.CommentRepositories;
 using CarBookPersistence.Repositories.RentACarRepositories;
 using CarBookPersistence.Repositories.StatisticsRepositories;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 using UdemyCarBook.Application.Features.CQRS.Handlers.AboutHandlers;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opt =>
+{
+    opt.RequireHttpsMetadata = false;
+    opt.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidAudience = "https://localhost",
+        ValidIssuer = "https://localhost",
+        ClockSkew = TimeSpan.Zero,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("carbookcarbook01")),
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true
+    };
+});
 
 // Add services to the container.
 builder.Services.AddScoped<CarBookContext>();
