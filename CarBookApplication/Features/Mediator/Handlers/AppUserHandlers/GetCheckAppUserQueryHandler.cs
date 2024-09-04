@@ -21,11 +21,15 @@ namespace CarBookApplication.Features.Mediator.Handlers.AppUserHandlers
 		{
 			var values = new GetCheckAppUserQueryResult();
 			var user = await _appUserRepository.GetByFilterAsync(x=>x.Username == request.UserName && x.Password == request.Password);
-			if (user == null) 
+			if (user == null)
+			{
+				values.IsExist = false;
+			}
+			else
 			{
 				values.IsExist = true;
 				values.Username = user.Username;
-				values.Role = (await _appRoleRepository.GetByFilterAsync(x=>x.AppRoleId == user.AppRoleId)).AppRoleName;
+				values.Role = (await _appRoleRepository.GetByFilterAsync(x => x.AppRoleId == user.AppRoleId)).AppRoleName;
 				values.Id = user.AppUserId;
 			}
 			return values;

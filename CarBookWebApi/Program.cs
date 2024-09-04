@@ -13,6 +13,7 @@ using CarBookApplication.Interfaces.CarPricingInterfaces;
 using CarBookApplication.Interfaces.RentACarInterfaces;
 using CarBookApplication.Interfaces.StatisticsInterfaces;
 using CarBookApplication.Services;
+using CarBookApplication.Tools;
 using CarBookPersistence.Context;
 using CarBookPersistence.Repositories;
 using CarBookPersistence.Repositories.BlogRepositories;
@@ -34,13 +35,13 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
     opt.RequireHttpsMetadata = false;
     opt.TokenValidationParameters = new TokenValidationParameters
     {
-        ValidAudience = "https://localhost",
-        ValidIssuer = "https://localhost",
-        ClockSkew = TimeSpan.Zero,
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("carbookcarbook01")),
-        ValidateLifetime = true,
-        ValidateIssuerSigningKey = true
-    };
+		ValidAudience = JwtTokenDefaults.ValidAudience,
+		ValidIssuer = JwtTokenDefaults.ValidIssuer,
+		ClockSkew = TimeSpan.Zero,
+		IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JwtTokenDefaults.Key)),
+		ValidateLifetime = true,
+		ValidateIssuerSigningKey = true
+	};
 });
 
 // Add services to the container.
